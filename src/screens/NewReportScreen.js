@@ -93,7 +93,7 @@ export class NewReportScreen extends React.Component {
             Alert.alert(
                 strings('createNew.noConnection'),
                 [
-                    { text: strings('createNew.cancel'), onPress: () => console.log('Cancel pressed'), style: 'cancel' },
+                    { text: strings('createNew.cancel'), onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
                     { text: strings('createNew.no'), onPress: () => console.log('No Pressed') },
                     { text: strings('createNew.yes'), onPress: () => console.log('Yes Pressed') },
                     //TODO: actually save changes when no connection :D
