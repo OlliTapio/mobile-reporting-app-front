@@ -186,17 +186,20 @@ export class TemplateScreen extends Component {
 
         const { reportsByTempID, templates } = this.props;
 
-        return <AppBackground>
-            <Modal
-                transparent={true}
-                visible={true}>
+        let offlineIndicator = {};
+
+        if (Platform.OS === 'android'){
+            offlineIndicator = <StatusBar backgroundColor={ this.props.isConnected ? '#3d4f7c' : '#b52424'} barStyle="light-content" />;
+        } else {
+            offlineIndicator =
+            <Modal transparent={true} visible={true} onRequestClose={() => true}>
                 <OfflineNotice isConnected={this.props.isConnected} />
-            </Modal>
+            </Modal>;
+        }
 
-            <StatusBar
-                backgroundColor={ this.props.isConnected ? '#3d4f7c' : '#b52424'}
-                barStyle="light-content" />
+        return <AppBackground>
 
+            { offlineIndicator }
             <View style={templateScreenStyles.viewContainer}>
 
                 {/* At the moment this doesn't do anything. */}

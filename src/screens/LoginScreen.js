@@ -45,8 +45,8 @@ export class LoginScreen extends React.Component {
         isNetworkConnected()
             .then(isConnected => {
                 this.props.dispatch(setInitialConnection({ connectionStatus: isConnected }));
-                console.log('First, is ' + isConnected);});
-        //.then(isConnected => NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectionChange));
+                console.log('First, is ' + isConnected);})
+            .then(isConnected => NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectionChange));
     }
 
     componentWillUnmount() {
@@ -89,10 +89,10 @@ export class LoginScreen extends React.Component {
         return <AppBackground>
             {/* Leaving this here in case it's of some use with iOS.*/}
             <OfflineNotice isConnected={this.props.isConnected} />
-            <StatusBar
+            {/* <StatusBar
                 backgroundColor={ this.props.isConnected ? '#3d4f7c' : '#b52424'}
                 hidden={false}
-                barStyle="light-content"/>
+                barStyle="light-content"/> */}
 
             <Text style={loginStyles.title}>
                 {strings('login.title')}
